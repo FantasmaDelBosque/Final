@@ -16,15 +16,15 @@ class CustomAuthenticationForm(AuthenticationForm):
 class RopaForm(forms.ModelForm):
     class Meta:
         model = Ropa
-        fields = ['nombre', 'descripcion', 'talla', 'marca', 'imagen']
+        fields = ['nombre', 'descripcion', 'talla', 'marca','precio', 'imagen']
 
 class ZapatosForm(forms.ModelForm):
     class Meta:
         model = Zapatos
-        fields = ['nombre', 'descripcion', 'talla', 'marca', 'imagen']
+        fields = ['nombre', 'descripcion', 'talla', 'marca','precio', 'imagen']
 
 class AccesoriosForm(forms.ModelForm):
     class Meta:
         model = Accesorios
-        fields = ['nombre', 'descripcion', 'precio', 'talla', 'marca', 'imagen']
+        fields = ['nombre', 'descripcion', 'talla', 'marca','precio', 'imagen']
 

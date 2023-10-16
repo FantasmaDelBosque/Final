@@ -40,6 +40,7 @@ class Ropa(models.Model):
     descripcion = models.TextField()
     talla = models.CharField(max_length=10)
     marca = models.CharField(max_length=100)
+    precio = models.DecimalField(max_digits=10, decimal_places=2, default=0.0)
     imagen = models.ImageField(upload_to='ropa/')  # Asegúrate de configurar correctamente la ruta de carga de imágenes
 
 
@@ -49,6 +50,7 @@ class Zapatos(models.Model):
     descripcion = models.TextField()
     talla = models.CharField(max_length=10)
     marca = models.CharField(max_length=100)
+    precio = models.DecimalField(max_digits=10, decimal_places=2, default=0.0)
     imagen = models.ImageField(upload_to='zapatos/')  # Asegúrate de configurar correctamente la ruta de carga de imágenes
 
     # def __str__(self):
@@ -58,9 +60,9 @@ class Zapatos(models.Model):
 class Accesorios(models.Model):
     nombre = models.CharField(max_length=255)
     descripcion = models.TextField()
-    precio = models.DecimalField(max_digits=10, decimal_places=2)  # Campo para el precio
     talla = models.CharField(max_length=10)
     marca = models.CharField(max_length=100)
+    precio = models.DecimalField(max_digits=10, decimal_places=2, default=0.0)  
     imagen = models.ImageField(upload_to='accesorios/')  # Asegúrate de configurar correctamente la ruta de carga de imágenes
 
     # def __str__(self):
