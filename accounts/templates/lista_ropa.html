@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="contenedor">
+    <h2>Lista de Ropa</h2>    
+    <div class="contenedor_listas">
+          
+        <ul class="lista">
+            {% for ropa in ropa %}
+                <li class="item">
+                    <div class="imagen">
+                        {% load static %}
+                        <img src="{{ ropa.imagen.url}}" alt="{{ ropa.nombre }}" width="100">
+                    </div>
+                    <div class="informacion">
+                        <strong>{{ ropa.nombre }}</strong><br>
+                        Descripción: {{ ropa.descripcion }}<br>
+                        Talla: {{ ropa.talla }}<br>
+                        Marca: {{ ropa.marca }}<br>
+                    </div>                  
+                </li>
+            {% endfor %}
+        </ul>
+
+    </div>
+</section>
+
+{% endblock %}
+
