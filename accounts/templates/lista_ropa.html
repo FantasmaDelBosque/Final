@@ -9,8 +9,7 @@
         <ul class="lista">
             {% for ropa in ropa %}
                 <li class="item">
-                    <div class="imagen">
-                        {% load static %}
+                    <div class="imgs">
                         <img src="{{ ropa.imagen.url}}" alt="{{ ropa.nombre }}" width="100">
                     </div>
                     <div class="informacion">

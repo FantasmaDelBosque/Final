@@ -13,8 +13,7 @@
         <ul class="lista">
             {% for zapato in zapatos %}
                 <li class="item">
-                    <div class="imagen">
-                        {% load static %}
+                    <div class="imgs">
                         <img src="{{ zapatos.imagen.url }}" alt="{{ zapato.nombre }}" width="100">
                     </div>
                     <div class="informacion">

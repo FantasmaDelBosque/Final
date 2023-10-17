@@ -1,7 +1,6 @@
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin, AbstractUser
 from django.db import models
-
-
+from django.conf import settings
 
 class CustomUserManager(BaseUserManager):
     
@@ -41,9 +40,12 @@ class Ropa(models.Model):
     talla = models.CharField(max_length=10)
     marca = models.CharField(max_length=100)
     precio = models.DecimalField(max_digits=10, decimal_places=2, default=0.0)
-    imagen = models.ImageField(upload_to='ropa/')  # Asegúrate de configurar correctamente la ruta de carga de imágenes
+    imagen = models.ImageField(upload_to='ropa/')  
+     # Campo para relacionar la prenda de ropa con el usuariomanage.py makemigrations
+    usuario = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=1)
 
-
+    # def __str__(self):
+    #     return self.nombre
 
 class Zapatos(models.Model):
     nombre = models.CharField(max_length=255)
@@ -51,7 +53,9 @@ class Zapatos(models.Model):
     talla = models.CharField(max_length=10)
     marca = models.CharField(max_length=100)
     precio = models.DecimalField(max_digits=10, decimal_places=2, default=0.0)
-    imagen = models.ImageField(upload_to='zapatos/')  # Asegúrate de configurar correctamente la ruta de carga de imágenes
+    imagen = models.ImageField(upload_to='zapatos/') 
+    usuario = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=1)
+
 
     # def __str__(self):
     #     return self.nombre
@@ -63,7 +67,8 @@ class Accesorios(models.Model):
     talla = models.CharField(max_length=10)
     marca = models.CharField(max_length=100)
     precio = models.DecimalField(max_digits=10, decimal_places=2, default=0.0)  
-    imagen = models.ImageField(upload_to='accesorios/')  # Asegúrate de configurar correctamente la ruta de carga de imágenes
+    imagen = models.ImageField(upload_to='accesorios/')  
+    usuario = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=1)
 
     # def __str__(self):
     #     return self.nombre
