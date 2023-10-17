@@ -9,10 +9,10 @@
         <ul class="lista"> 
             {% for accesorio in accesorios %}
                 <li class="item">
-                    <div class="imgs">
+                    <div class="div20 imgs">
                         <img src="{{ accesorio.imagen.url }}" alt="{{ accesorio.nombre }}" width="100">
                     </div>
-                    <div class="informacion">
+                    <div class="div80 informacion">
                         <strong>{{ accesorio.nombre }}</strong><br>
                         Descripción: {{ accesorio.descripcion }}<br>
                         Talla: {{ accesorio.talla }}<br>

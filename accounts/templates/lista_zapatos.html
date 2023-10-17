@@ -2,21 +2,17 @@
 
 {% block content %}
 
-<section class="contenedor">
-    
+<section class="contenedor">   
     <h2>Lista de Zapatos</h2>
-
     <div class="contenedor_listas">
-
-        
     
         <ul class="lista">
             {% for zapato in zapatos %}
                 <li class="item">
-                    <div class="imgs">
+                    <div class="div20 imgs">
                         <img src="{{ zapatos.imagen.url }}" alt="{{ zapato.nombre }}" width="100">
                     </div>
-                    <div class="informacion">
+                    <div class="div80 informacion">
                         <strong>{{ zapato.nombre }}</strong><br>
                         Descripción: {{ zapato.descripcion }}<br>
                         Talla: {{ zapato.talla }}<br>
@@ -32,3 +28,6 @@
 </section>
 
 {% endblock %}
+
+
+

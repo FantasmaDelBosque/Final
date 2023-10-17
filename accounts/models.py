@@ -1,6 +1,7 @@
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin, AbstractUser
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin, AbstractUser, User
 from django.db import models
 from django.conf import settings
+
 
 class CustomUserManager(BaseUserManager):
     
@@ -72,3 +73,8 @@ class Accesorios(models.Model):
 
     # def __str__(self):
     #     return self.nombre
+
+
+class Avatar(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    imagen = models.ImageField(upload_to='avatares', blank=True, null=True)

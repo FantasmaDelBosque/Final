@@ -149,7 +149,15 @@ def sobremi(request):
 
 @login_required
 def editar_ropa(request, ropa_id):
-    ropa = Ropa.objects.get(id=ropa_id)# pylint: disable=no-member
+    ropa = Ropa.objects.get(id=ropa_id) # pylint: disable=no-member
+    form = None  # Define la variable 'form' con un valor predeterminado None
+
+
+    # Imprime el valor de request.user para verificar el usuario autenticado
+    print("Usuario autenticado:", request.user)
+
+    # Imprime el valor de ropa.usuario para verificar el propietario de la prenda
+    print("Propietario de la prenda:", ropa.usuario)
 
     if request.user != ropa.usuario:
         return HttpResponseForbidden("No tienes permiso para editar esta prenda de ropa")
@@ -165,6 +173,9 @@ def editar_ropa(request, ropa_id):
         form = RopaForm(instance=ropa)
 
     return render(request, 'editar_ropa.html', {'form': form, 'ropa': ropa})
+
+
+
 
 
 
